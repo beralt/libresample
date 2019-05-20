@@ -52,7 +52,7 @@
 #define SGN(x)   ((x)<0   ?(-1):((x)==0?(0):(1)))
 #endif
 
-#if HAVE_INTTYPES_H
+#ifdef HAVE_INTTYPES_H
   #include <inttypes.h>
   typedef char           BOOL;
   typedef int32_t        WORD;

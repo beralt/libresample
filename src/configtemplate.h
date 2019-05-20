@@ -3,5 +3,5 @@
    use this file as a template to create config.h
 */
 
-#undef HAVE_INTTYPES_H
+#cmakedefine HAVE_INTTYPES_H
 
