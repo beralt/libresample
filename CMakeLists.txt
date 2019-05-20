@@ -11,6 +11,10 @@ add_library(resample SHARED ${OBJS})
 target_include_directories(resample PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(resample PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
+install(TARGETS resample
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib)
+
 add_executable(testresample ${CMAKE_CURRENT_SOURCE_DIR}/tests/testresample.c)
 target_link_libraries(testresample resample m)
 
