@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.8.11)
-project(libresample C)
+project(libresample LANGUAGES C)
+
+include(CheckIncludeFiles)
+include(FindPkgConfig)
 
 set(OBJS
 	src/resample.c
@@ -10,6 +13,7 @@ set(OBJS
 add_library(resample SHARED ${OBJS})
 target_include_directories(resample PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(resample PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+set_target_properties(resample PROPERTIES VERSION "0.1.4")
 
 install(TARGETS resample
         RUNTIME DESTINATION bin
@@ -17,9 +21,6 @@ install(TARGETS resample
 
 add_executable(testresample ${CMAKE_CURRENT_SOURCE_DIR}/tests/testresample.c)
 target_link_libraries(testresample resample m)
-
-include(CheckIncludeFiles)
-include(FindPkgConfig)
 
 CHECK_INCLUDE_FILES("inttypes.h" HAVE_INTTYPES_H)
 
