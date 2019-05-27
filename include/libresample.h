@@ -26,14 +26,14 @@ void *resample_dup(const void *handle);
 
 int resample_get_filter_width(const void *handle);
 
-int resample_process(void   *handle,
-                     double  factor,
-                     float  *inBuffer,
-                     int     inBufferLen,
-                     int     lastFlag,
-                     int    *inBufferUsed,
-                     float  *outBuffer,
-                     int     outBufferLen);
+int resample_process(void         *handle,
+                     double        factor,
+                     float        *inBuffer,
+                     unsigned int  inBufferLen,
+                     unsigned int  lastFlag,
+                     unsigned int *inBufferUsed,
+                     float        *outBuffer,
+                     unsigned int  outBufferLen);
 
 void resample_close(void *handle);
 

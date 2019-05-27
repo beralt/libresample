@@ -83,7 +83,7 @@ void *resample_open(int highQuality, double minFactor, double maxFactor)
    double Rolloff, Beta;
    rsdata *hp;
    UWORD   Xoff_min, Xoff_max;
-   int i;
+   unsigned int i;
 
    /* Just exit if we get invalid factors */
    if (minFactor <= 0.0 || maxFactor <= 0.0 || maxFactor < minFactor) {
@@ -167,14 +167,14 @@ int resample_get_filter_width(const void   *handle)
    return hp->Xoff;
 }
 
-int resample_process(void   *handle,
-                     double  factor,
-                     float  *inBuffer,
-                     int     inBufferLen,
-                     int     lastFlag,
-                     int    *inBufferUsed, /* output param */
-                     float  *outBuffer,
-                     int     outBufferLen)
+int resample_process(void         *handle,
+                     double        factor,
+                     float        *inBuffer,
+                     unsigned int  inBufferLen,
+                     unsigned int  lastFlag,
+                     unsigned int *inBufferUsed,
+                     float        *outBuffer,
+                     unsigned int  outBufferLen)
 {
    rsdata *hp = (rsdata *)handle;
    float  *Imp = hp->Imp;
@@ -185,7 +185,7 @@ int resample_process(void   *handle,
    int outSampleCount;
    UWORD Nout, Ncreep, Nreuse;
    int Nx;
-   int i, len;
+   unsigned int i, len;
 
    #if DEBUG
    fprintf(stderr, "resample_process: in=%d, out=%d lastFlag=%d\n",
