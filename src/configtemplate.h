@@ -3,5 +3,9 @@
    use this file as a template to create config.h
 */
 
+#ifdef LIBRESAMPLE_LIBRARY
+#define HAVE_INTTYPES_H
+#else
 #cmakedefine HAVE_INTTYPES_H
+#endif
 

@@ -6,7 +6,7 @@
 
 QT       -= core gui
 
-TARGET = libresample
+TARGET = resample
 TEMPLATE = lib
 
 DEFINES += LIBRESAMPLE_LIBRARY
@@ -25,6 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += ./include
+
+config_h.input = src/configtemplate.h
+config_h.output = config.h
+QMAKE_SUBSTITUTES = config_h
 
 SOURCES += \
     src/filterkit.c \
